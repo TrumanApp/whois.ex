@@ -19,7 +19,6 @@ defmodule Whois.Record do
   """
   @spec parse(String.t) :: t
   def parse(raw) do
-    IO.inpsect(raw)
     record = %Whois.Record{raw: raw, nameservers: []}
     record = Enum.reduce(String.split(raw, "\n"), record, fn line, record ->
       case String.strip(line) do
